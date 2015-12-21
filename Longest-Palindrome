@@ -1,0 +1,17 @@
+# Write a method that takes in a string of lowercase letters (no
+# uppercase letters, no repeats). Consider the *substrings* of the
+# string: consecutive sequences of letters contained inside the string.
+# Find the longest such string of letters that is a palindrome.
+#
+# Note that the entire string may itself be a palindrome.
+
+def longest_palindrome(string)
+  pairs = {}
+  possible_palindromes = []
+    array = string.split("") #divide up the string for easier access tto the elements
+      character = array.select{|x| string.count(x) > 1 } #seperate out the elements that occur more than once
+      character.each {|x| pairs[string.index(x)]=string.rindex(x) } #create a hash of the first and last index of each element's               occurrance
+         pairs.each {|k,v|possible_palindromes << string.slice(k..v) } #make an array of strings sliced by those first and last indexes
+          possible_palindromes.sort_by!{|u| u.length} #sort it by length so I can access the biggest one
+          possible_palindromes[-1][possible_palindromes[-1].reverse] ? possible_palindromes[-1] : nil #check if it's a palindrome, and             returns it if it is
+end
