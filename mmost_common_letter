@@ -1,0 +1,16 @@
+# Write a method that takes in a string. Your method should return the
+# most common letter in the array, and a count of how many times it
+# appears.
+#
+# Difficulty: medium.
+
+def most_common_letter(string)
+  counts = {}
+  letters = string.split("").sort
+  letters.each do |x|
+      counts[x] = letters.count(x)
+    end
+    array = counts.to_a.sort_by{|i| i[1]} 
+       x = array.length - 1
+    array[x]
+end
