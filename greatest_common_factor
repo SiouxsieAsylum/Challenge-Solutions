@@ -1,0 +1,27 @@
+# Write a method that takes in two numbers. Return the greatest
+# integer that evenly divides both numbers. You may wish to use the
+# `%` modulo operation.
+#
+# Difficulty: medium.
+
+def greatest_common_factor(a, b)
+  #two integers inputt
+  #one integer output
+  #each are divisable by the same factor
+  #find all of the factors each are fullyy divisable by
+  arraya = []
+  arrayb = []
+   1.upto(a) do |i|
+      if a % i == 0
+          arraya << i 
+      end
+    end
+    1.upto(b) do |j|
+      if b % j == 0 
+        arrayb << j
+      end
+    end
+   
+  return (arraya & arrayb)[-1]
+    
+end
