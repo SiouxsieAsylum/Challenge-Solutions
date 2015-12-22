@@ -1,0 +1,21 @@
+# Write a method that takes in a string of lowercase letters and
+# spaces, producing a new string that capitalizes the first letter of
+# each word.
+#
+# You'll want to use the `split` and `join` methods. Also, the String
+# method `upcase`, which converts a string to all upper case will be
+# helpful.
+#
+# Difficulty: medium.
+
+#input-sring
+#ouput-string
+#want the first letter of every word capitalized
+#i.e. index 0
+#so isolate index 0 and upcase it
+
+def capitalize_words(string)
+ array  = string.split 
+  array.map! {|word| word[0].upcase + word[1..word.length]+ " "}
+  p array.join.chop
+end
