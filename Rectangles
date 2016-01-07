@@ -1,0 +1,31 @@
+  rect_far = []
+    
+      rect1_bl_tr = rect1.flatten
+      p rect1_bl_tr
+     perms = rect1_bl_tr.permutation(4).to_a
+     perms.each do |index| #in a nested arry, the array elements are arrays, don't forget
+        if rect1_bl_tr[2] - rect1_bl_tr[0] >= rect1_bl_tr[3] - rect1_bl_tr[1]
+            rect_far << index if index[0] == rect1_bl_tr[2] && index[2] == rect1_bl_tr[0] #so you can just interactwith their elements this way
+            rect_far.delete_if{|x|x[3] != rect1_bl_tr[3]}
+        else
+            rect_far << index if index[1] == rect1_bl_tr[3] && index[3] == rect1_bl_tr[1]
+        end
+    end
+         rect1_tl_br= rect_far.uniq.flatten
+      p rect1_tl_br
+       
+    rect_near = []
+      rect2_bl_tr = rect2.flatten
+      p rect2_bl_tr
+     permus = rect2_bl_tr.permutation(4).to_a
+     permus.each do |index| #in a nested arry, the array elements are arrays, don't forget
+        if rect2_bl_tr[2] - rect2_bl_tr[0] >= rect2_bl_tr[3] - rect2_bl_tr[1]
+            rect_near << index if index[0] == rect2_bl_tr[2] && index[2] == rect2_bl_tr[0] #so you can just interactwith their elements this way
+            rect_near.delete_if{|x|x[3] != rect2_bl_tr[3]}
+        else
+            rect_near << index if index[1] == rect2_bl_tr[3] && index[3] == rect2_bl_tr[1]
+            rect_near.delete_if{|x|x[2] != rect2_bl_tr[2]}
+            end
+    end
+        rect2_tl_br= rect_near.uniq.flatten
+      p rect2_tl_br  
